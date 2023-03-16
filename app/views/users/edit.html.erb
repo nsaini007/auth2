@@ -23,3 +23,23 @@
     </div>
     <%= form.submit "Update Account" %>
 <% end %>
+
+<h2>Current Logins</h2>
+<% if @active_sessions.any? %>
+    <%= button_to "Log out of all other sessions", destroy_all_active_sessions_path, method: :delete %>
+    <table border="2px">
+        <thead>
+        <tr>
+            <th>User Agent</th>
+            <th>IP Address</th>
+            <th>Signed In At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @active_sessions.each do |active_session| %>
+            <%#= active_session %>
+            <%= render partial: "active_sessions/active_sessions", locals: { active_session: active_session } %>
+        <% end %>
+        </tbody>
+    </table>
+<% end %>

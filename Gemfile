@@ -44,6 +44,7 @@ group :development do
   gem 'spring'
   gem 'bcrypt', '~> 3.1.7'
   gem "letter_opener", group: :development
+  gem "awesome_print"
 end
 
 group :test do
