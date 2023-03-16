@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
             if @user.unconfirmed?
                 redirect_to new_confirmation_path, alert: "Please confirm your email."
             elsif @user.authenticate(params[:user][:password])
+                puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+                puts session[:user_return_to]
                 after_login_path = session[:user_return_to] || root_path
                 active_session = login @user
                 remember(active_session) if params[:user][:remember_me] == "1"

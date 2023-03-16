@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cart' => 'cart#index'
   default_url_options :host => "localhost", :port => "3000"
   root 'static_pages#home'
   post "sign_up", to: "users#create"
@@ -20,5 +21,7 @@ Rails.application.routes.draw do
       delete "destroy_all"
     end
   end
+
+  get 'articles' => 'articles#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
